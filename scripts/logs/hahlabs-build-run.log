@@ -1,0 +1,102 @@
+HAHLABS docker builds starts Thu Jan 11 22:37:29 PST 2024
+export DOCKER_ID="hahlabs"
+export IMAGE_NAME="ubuntu"
+export CONTAINER_NAME="ubuntu"
+export IMAGE_TAG=$DOCKER_ID/$IMAGE_NAME
+export PUSH=push
+export ENV=alpha
+export DEBUG=-q
+echo $DOCKER_ID/$IMAGE_NAME $CONTAINER_NAME
+hahlabs/ubuntu ubuntu
+Building docker container:  ubuntu hahlabs/ubuntu
+hahlabs/ubuntu ubuntu
+Building image: hahlabs/ubuntu:wip
+sha256:a748975244dba47fb9fc7a5e0a7809c412030bcd95043561888b8da22ddc27b1
+hahlabs/ubuntu ubuntu
+Tagging container:  ubuntu hahlabs/ubuntu alpha-00.07.01
+tagged  hahlabs/ubuntu:alpha-00.07.01  and  hahlabs/ubuntu:alpha [OK]
+Untagged: hahlabs/ubuntu:wip
+hahlabs/ubuntu    alpha            a748975244db   1 second ago         381MB
+hahlabs/ubuntu    alpha-00.07.01   a748975244db   1 second ago         381MB
+hahlabs/ubuntu    shams            cb342dbcce5a   3 minutes ago        154MB
+hahlabs/ubuntu    shams-00.07.01   cb342dbcce5a   3 minutes ago        154MB
+Login Succeeded
+Pushing image:  hahlabs/ubuntu:alpha
+docker.io/hahlabs/ubuntu:alpha
+docker.io/hahlabs/ubuntu:alpha-00.07.01
+image:  ubuntu hahlabs/ubuntu:alpha  pushed into repository OK!
+ubuntu hahlabs/ubuntu  Built [OK]
+skip test image.
+export DOCKER_ID="hahlabs"
+export IMAGE_NAME="laravel"
+export CONTAINER_NAME="hahlabs-app"
+export IMAGE_TAG=$DOCKER_ID/$IMAGE_NAME
+export PUSH=push
+export ENV=alpha
+export DEBUG=-q
+echo $DOCKER_ID/$IMAGE_NAME $CONTAINER_NAME
+export DOCKER_ID="hahlabs"
+export IMAGE_NAME="mysql"
+export CONTAINER_NAME="hahlabs-db"
+export IMAGE_TAG=$DOCKER_ID/$IMAGE_NAME
+export PUSH=push
+export ENV=alpha
+export DEBUG=-q
+echo $DOCKER_ID/$IMAGE_NAME $CONTAINER_NAME
+export DOCKER_ID="hahlabs"
+export IMAGE_NAME="angular"
+export CONTAINER_NAME="hahlabs-view"
+export IMAGE_TAG=$DOCKER_ID/$IMAGE_NAME
+export PUSH=push
+export ENV=alpha
+export DEBUG=-q
+echo $DOCKER_ID/$IMAGE_NAME $CONTAINER_NAME
+hahlabs/laravel hahlabs-app
+hahlabs/angular hahlabs-view
+Building docker container:  hahlabs-view hahlabs/angular
+Building docker container:  hahlabs-app hahlabs/laravel
+hahlabs/mysql hahlabs-db
+Building docker container:  hahlabs-db hahlabs/mysql
+hahlabs/laravel hahlabs-app
+hahlabs/mysql hahlabs-db
+Building image: hahlabs/laravel:wip
+Building image: hahlabs/mysql:wip
+hahlabs/angular hahlabs-view
+Building image: hahlabs/angular:wip
+sha256:715eb53e8f6efe5af233f7510116f134ab095085358fa9f581abe8422bdb7161
+hahlabs/mysql hahlabs-db
+Tagging container:  hahlabs-db hahlabs/mysql alpha-00.07.01
+tagged  hahlabs/mysql:alpha-00.07.01  and  hahlabs/mysql:alpha [OK]
+Untagged: hahlabs/mysql:wip
+hahlabs/mysql     alpha            715eb53e8f6e   1 second ago         905MB
+hahlabs/mysql     alpha-00.07.01   715eb53e8f6e   1 second ago         905MB
+hahlabs/mysql     shams            c4daafff5b5c   3 minutes ago        781MB
+hahlabs/mysql     shams-00.07.01   c4daafff5b5c   3 minutes ago        781MB
+Login Succeeded
+Pushing image:  hahlabs/mysql:alpha
+docker.io/hahlabs/mysql:alpha
+sha256:ce9330506c89459edafc57fed5f477da60c1e0cf8eee253dcb3d1878eabbd2ab
+hahlabs/laravel hahlabs-app
+Tagging container:  hahlabs-app hahlabs/laravel alpha-00.07.01
+tagged  hahlabs/laravel:alpha-00.07.01  and  hahlabs/laravel:alpha [OK]
+Untagged: hahlabs/laravel:wip
+hahlabs/laravel   alpha            ce9330506c89   1 second ago         1.33GB
+hahlabs/laravel   alpha-00.07.01   ce9330506c89   1 second ago         1.33GB
+hahlabs/laravel   shams            6cad0ba9f1cd   2 minutes ago        862MB
+hahlabs/laravel   shams-00.07.01   6cad0ba9f1cd   2 minutes ago        862MB
+Login Succeeded
+Pushing image:  hahlabs/laravel:alpha
+docker.io/hahlabs/mysql:alpha-00.07.01
+image:  hahlabs-db hahlabs/mysql:alpha  pushed into repository OK!
+hahlabs-db hahlabs/mysql  Built [OK]
+skip test image.
+hahlabs/angular hahlabs-view
+Tagging container:  hahlabs-view hahlabs/angular alpha-00.07.01
+tagged  hahlabs/angular:alpha-00.07.01  and  hahlabs/angular:alpha [OK]
+hahlabs/angular   shams            a11f4c2fa5a8   4 minutes ago        211MB
+hahlabs/angular   shams-00.07.01   a11f4c2fa5a8   4 minutes ago        211MB
+Login Succeeded
+Pushing image:  hahlabs/angular:alpha
+image:  hahlabs-view hahlabs/angular:alpha  pushed into repository OK!
+hahlabs-view hahlabs/angular  Built [OK]
+skip test image.

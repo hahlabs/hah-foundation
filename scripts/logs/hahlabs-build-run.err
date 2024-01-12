@@ -1,0 +1,35 @@
+HAHLABS docker builds errors Thu Jan 11 22:37:29 PST 2024
+ERROR: failed to solve: Canceled: context canceled
+5542 v0.11.2 /usr/libexec/docker/cli-plugins/docker-buildx buildx build -q -t hahlabs/angular:wip .
+google.golang.org/grpc.getChainUnaryInvoker.func1
+	google.golang.org/grpc@v1.53.0/clientconn.go:361
+go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc.UnaryClientInterceptor.func1
+	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.40.0/interceptor.go:99
+github.com/moby/buildkit/client.filterInterceptor.func1
+	github.com/moby/buildkit@v0.12.1-0.20230717122532-faa0cc7da353/client/client.go:384
+google.golang.org/grpc.chainUnaryClientInterceptors.func1
+	google.golang.org/grpc@v1.53.0/clientconn.go:349
+google.golang.org/grpc.(*ClientConn).Invoke
+	google.golang.org/grpc@v1.53.0/call.go:35
+github.com/moby/buildkit/api/services/control.(*controlClient).Solve
+	github.com/moby/buildkit@v0.12.1-0.20230717122532-faa0cc7da353/api/services/control/control.pb.go:2208
+github.com/moby/buildkit/client.(*Client).solve.func2
+	github.com/moby/buildkit@v0.12.1-0.20230717122532-faa0cc7da353/client/solve.go:258
+golang.org/x/sync/errgroup.(*Group).Go.func1
+	golang.org/x/sync@v0.2.0/errgroup/errgroup.go:75
+runtime.goexit
+	runtime/asm_amd64.s:1598
+
+5542 v0.11.2 /usr/libexec/docker/cli-plugins/docker-buildx buildx build -q -t hahlabs/angular:wip .
+github.com/moby/buildkit/client.(*Client).solve.func2
+	github.com/moby/buildkit@v0.12.1-0.20230717122532-faa0cc7da353/client/solve.go:273
+golang.org/x/sync/errgroup.(*Group).Go.func1
+	golang.org/x/sync@v0.2.0/errgroup/errgroup.go:75
+runtime.goexit
+	runtime/asm_amd64.s:1598
+
+Error response from daemon: No such image: hahlabs/angular:wip
+Error response from daemon: No such image: hahlabs/angular:wip
+Error response from daemon: No such image: hahlabs/angular:wip
+tag does not exist: hahlabs/angular:alpha
+tag does not exist: hahlabs/angular:alpha-00.07.01
