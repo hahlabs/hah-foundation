@@ -1,0 +1,22 @@
+FROM ubuntu:22.04
+LABEL version.ubuntu="22.04-lts" \
+      version.hahlabs-ubuntu="prod-00.07.01"
+# Common Layers
+# Update, Upgrade, install packages
+RUN apt -y update && apt -y upgrade
+
+ENV TZ="America/Vancouver"
+RUN DEBIAN_FRONTEND=noninteractive TZ=America/Vancouver apt-get -y install tzdata && ln -fs /usr/share/zoneinfo/America/Vancouver /etc/localtime
+
+WORKDIR /home/hahlabs
+ADD files /home/hahlabs/files
+# Setup ops user use defaults uid 15268 gid 15268
+RUN files/setup-hahlabs-user.sh \
+ && files/setup-sudoers.sh  \
+ && cp files/startup.sh /home/hahlabs \
+ && rm -rf files \
+ && chown -R hahlabs:hahlabs /home/hahlabs 
+
+USER hahlabs
+# Enables the service on docker run container
+ENTRYPOINT sudo ./startup.sh 

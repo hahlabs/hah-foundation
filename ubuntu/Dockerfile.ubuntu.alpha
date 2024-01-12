@@ -1,0 +1,18 @@
+FROM hahlabs/ubuntu:shams
+LABEL version.ubuntu="22.04-lts" \
+      version.hahlabs-ubuntu="alpha-00.07.01"
+# Common Layers
+# Update, Upgrade, install packages
+ADD --chown=hahlabs:hahlabs files/. files/
+USER root
+RUN apt -y update && apt -y upgrade && apt -y install vim net-tools git
+
+WORKDIR /home/hahlabs
+
+RUN files/setup-ssh-server.sh 22 \
+ && rm -rf files 
+
+USER hahlabs
+EXPOSE 22
+# Enables the service on docker run container
+ENTRYPOINT sudo ./startup.sh 

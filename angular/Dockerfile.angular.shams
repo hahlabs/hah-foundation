@@ -1,0 +1,23 @@
+FROM hahlabs/ubuntu:shams
+LABEL version.angular="17.0.8" \
+      version.ubuntu="22.04-lts" \
+      version.firebase="13.0.2" \
+      version.nvm="0.39.7" \
+      version.node.js="20.10.0-lts" \
+      version.npm="10.2.3" \
+      version.hahlabs-angular="shams-00.07.01" \
+      version.description="Ubuntu 22.04 - Angular 17"
+
+COPY --chown=hahlabs:hahlabs files/. files/
+# Update, Upgrade, install packages
+USER root
+RUN apt -y update && apt -y upgrade && apt install -y nginx \
+    && cp files/startup.sh /home/hahlabs \
+    && rm -rf files
+    
+WORKDIR /home/hahlabs
+USER hahlabs
+# 8101 : NGINX with default virtual host to intial Angular project
+
+EXPOSE 8101 
+ENTRYPOINT sudo ./startup.sh 

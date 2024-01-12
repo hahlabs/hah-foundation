@@ -1,0 +1,37 @@
+FROM hahlabs/angular:shams
+LABEL version.angular="17.0.8" \
+      version.ubuntu="22.04-lts" \
+      version.firebase="13.0.2" \
+      version.nvm="0.39.7" \
+      version.node.js="20.10.0-lts" \
+      version.npm="10.2.3" \
+      version.hahlabs-angular="alpha-00.07.01" \
+      version.description="Ubuntu 22.04 - Angular 17"
+
+COPY --chown=hahlabs:hahlabs files/. files/
+# Update, Upgrade, install packages
+USER root
+RUN apt -y update && apt -y upgrade && apt install -y  curl npm git
+
+WORKDIR /home/hahlabs
+
+RUN files/setup-ssh-server.sh 8122 
+
+USER hahlabs
+# Install nvm, load it, and install node --lts
+RUN files/install-nvm.sh 
+
+# Install Angular using npm, and print version
+RUN files/install-angular.sh
+     
+RUN files/install-firebase.sh
+
+RUN  files/setup-nginx-virtual-host.sh \
+   && cp files/startup.alpha.sh startup.sh \
+   && sudo rm -rf files
+
+# 8101 : NGINX with default virtual host to intial Angular project
+# 8110 : ng serve
+# 9005 : Debugger port
+EXPOSE 8110 9005 8122
+ENTRYPOINT sudo ./startup.sh 

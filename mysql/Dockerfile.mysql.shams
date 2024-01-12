@@ -1,0 +1,16 @@
+FROM hahlabs/ubuntu:shams
+LABEL version.hahlabs-mysql="shams-00.07.01"
+
+COPY --chown=hahlabs:hahlabs files/. files/
+USER root
+RUN  apt -y update && apt -y upgrade \
+     && files/setup-mysql.sh \
+     && mysql  < files/hahlabs-user.sql  \
+     && cp files/startup.sh /home/hahlabs \
+     && rm -rf files 
+     
+USER hahlabs
+
+EXPOSE 3306 
+# Enables the service on docker run container
+ENTRYPOINT sudo ./startup.sh 

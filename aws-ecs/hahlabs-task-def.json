@@ -1,0 +1,115 @@
+ {
+        "family": "hahlabs-task-def",
+        "networkMode": "awsvpc",
+        "taskRoleArn": "arn:aws:iam::479788010133:role/ecsTaskRole",
+        "executionRoleArn": "arn:aws:iam::479788010133:role/ecsTaskExecutionRole",
+        "containerDefinitions": [
+            {
+                "name": "hahlabs-mysql",
+                "image": "479788010133.dkr.ecr.us-west-2.amazonaws.com/hahlabs/mysql:dev",
+                "linuxParameters": { 
+                    "initProcessEnabled": true 
+                },
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                        "options": {
+                           "awslogs-group": "/timy-rnd/ecs/hahlabs",
+                           "awslogs-region": "us-west-2",
+                           "awslogs-stream-prefix": "hahlabs-mysql"
+                        }
+                },
+                "portMappings": [
+                    {
+                        "containerPort": 3306,
+                        "hostPort": 3306,
+                        "protocol": "tcp"
+                    },
+                    {
+                        "containerPort": 8022,
+                        "hostPort": 8022,
+                        "protocol": "tcp"
+                    }
+                ],
+                "essential": true,
+                "entryPoint": [
+                    "/bin/sh", "-c" ,"/usr/bin/sudo ./startup.sh && tail -f /dev/null"
+                ],
+                "environment": [],
+                "mountPoints": [],
+                "volumesFrom": []
+            },
+            {
+                "name": "hahlabs-laravel",
+                "image": "479788010133.dkr.ecr.us-west-2.amazonaws.com/hahlabs/laravel:dev",
+                "linuxParameters": { 
+                    "initProcessEnabled": true 
+                },
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                        "options": {
+                           "awslogs-group": "/timy-rnd/ecs/hahlabs",
+                           "awslogs-region": "us-west-2",
+                           "awslogs-stream-prefix": "hahlabs-laravel"
+                        }
+                },
+                "portMappings": [
+                    {
+                        "containerPort": 8201,
+                        "hostPort": 8201,
+                        "protocol": "tcp"
+                    },
+                    {
+                        "containerPort": 8222,
+                        "hostPort": 8222,
+                        "protocol": "tcp"
+                    }
+                ],
+                "essential": true,
+                "entryPoint": [
+                    "/bin/sh", "-c" ,"/usr/bin/sudo ./startup.sh && tail -f /dev/null"
+                ],
+                "environment": [],
+                "mountPoints": [],
+                "volumesFrom": []
+            },
+            {
+                "name": "hahlabs-angular",
+                "image": "479788010133.dkr.ecr.us-west-2.amazonaws.com/hahlabs/angular:dev",
+                "linuxParameters": { 
+                    "initProcessEnabled": true 
+                },
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                        "options": {
+                           "awslogs-group": "/timy-rnd/ecs/hahlabs",
+                           "awslogs-region": "us-west-2",
+                           "awslogs-stream-prefix": "hahlabs-angular"
+                        }
+                },
+                "portMappings": [
+                    {
+                        "containerPort": 8101,
+                        "hostPort": 8101,
+                        "protocol": "tcp"
+                    },
+                    {
+                        "containerPort": 8122,
+                        "hostPort": 8122,
+                        "protocol": "tcp"
+                    }
+                ],
+                "essential": true,
+                "entryPoint": [
+                    "/bin/sh", "-c" ,"/usr/bin/sudo ./startup.sh && tail -f /dev/null"
+                ],
+                "environment": [],
+                "mountPoints": [],
+                "volumesFrom": []
+            }
+        ],
+        "requiresCompatibilities": [
+            "FARGATE"
+        ],
+        "cpu": "1024",
+        "memory": "4096"
+}
