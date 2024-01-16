@@ -1,1 +1,1 @@
-Dockerfile.laravel.alpha
+Dockerfile.laravel.shams

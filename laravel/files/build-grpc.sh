@@ -3,6 +3,6 @@
 # pecl channel-update pecl.php.net
 # pecl install grpc protobuf
 
-cp files/*.so /usr/lib/php/20220829/
-sed -Ei 's/;extension=zip/extension=grpc/' /etc/php/8.2/cli/php.ini
-sed -Ei 's/;extension=xsl/extension=protobuf/' /etc/php/8.2/cli/php.ini
+cp files/lib/*.so /usr/lib/php/20220829/
+cp files/lib/20-grpc.ini /etc/php/8.2/cli/conf.d
+cp files/lib/20-grpc.ini /etc/php/8.2/fpm/conf.d
