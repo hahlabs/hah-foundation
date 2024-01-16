@@ -21,8 +21,7 @@ WORKDIR /home/hahlabs
 RUN  files/setup-nginx-virtual-host.sh \
      && cp files/lib/20-xdebug.ini /etc/php/8.2/cli/conf.d \
      && cp files/lib/20-xdebug.ini /etc/php/8.2/fpm/conf.d \
-     && cp files/startup.alpha.sh startup.sh \
-     && rm -rf files 
+     && cp files/startup.alpha.sh startup.sh 
 
 USER hahlabs
 

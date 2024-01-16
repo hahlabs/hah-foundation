@@ -15,8 +15,7 @@ RUN  apt -y update && apt -y upgrade \
     && files/install-tools.sh \
     && files/install-composer.sh \
     && files/build-grpc.sh \
-    && cp files/startup.sh /home/hahlabs \
-    && rm -rf files 
+    && cp files/startup.sh /home/hahlabs  
 
 USER hahlabs
 # 80    : NGINX virtual host default: http://localhost:80 <-- removed
