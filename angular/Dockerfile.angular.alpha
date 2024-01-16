@@ -11,7 +11,7 @@ LABEL version.angular="17.0.8" \
 COPY --chown=hahlabs:hahlabs files/. files/
 # Update, Upgrade, install packages
 USER root
-RUN apt -y update && apt -y upgrade && apt install -y  curl npm git
+RUN apt -y update && apt -y upgrade && apt install -y  curl npm git vim
 
 WORKDIR /home/hahlabs
 

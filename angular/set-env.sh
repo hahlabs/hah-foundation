@@ -5,9 +5,9 @@ export DOCKER_ID="hahlabs"
 export IMAGE_NAME="angular"
 export CONTAINER_NAME="hahlabs-view"
 export IMAGE_TAG=\$DOCKER_ID/\$IMAGE_NAME
-export PUSH=skip
+export PUSH=push
 export ENV=$ENV
-# export DEBUG=-q
+export DEBUG=-q
 echo \$DOCKER_ID/\$IMAGE_NAME \$CONTAINER_NAME
 EOF
 

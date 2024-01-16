@@ -1,7 +1,7 @@
 #!/bin/bash
-docker rm -f $(docker ps -aq)
-docker rmi -f $(docker images -q)
-docker system prune -af
+# docker rm -f $(docker ps -aq)
+# docker rmi -f $(docker images -q)
+# docker system prune -af
 echo "HAHLABS docker builds errors $(date)" > ../scripts/logs/hahlabs-build-run.err
 echo "HAHLABS docker builds starts $(date)" > ../scripts/logs/hahlabs-build-run.log
 echo "Build Ubuntu base image...Please wait"
