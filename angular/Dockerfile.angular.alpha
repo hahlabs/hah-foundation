@@ -11,11 +11,11 @@ LABEL version.angular="17.0.8" \
 COPY --chown=hahlabs:hahlabs files/. files/
 # Update, Upgrade, install packages
 USER root
-RUN apt -y update && apt -y upgrade && apt install -y  curl npm git vim
+RUN apt -y update && apt -y upgrade && apt install -y  curl npm git vim \
+    && files/setup-ssh-server.sh 8122 \
+    && apt -y autoremove
 
 WORKDIR /home/hahlabs
-
-RUN files/setup-ssh-server.sh 8122 
 
 USER hahlabs
 # Install nvm, load it, and install node --lts

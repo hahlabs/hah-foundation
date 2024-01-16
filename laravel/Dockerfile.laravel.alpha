@@ -15,7 +15,7 @@ RUN  apt -y update && apt -y upgrade \
      && apt install -y apt-utils vim git curl \
      net-tools iputils-ping telnet inetutils-tools php8.2-xdebug \
      && files/setup-ssh-server.sh 8222 \
-     && apt autoremove
+     && apt -y autoremove
 
 WORKDIR /home/hahlabs
 RUN  files/setup-nginx-virtual-host.sh \

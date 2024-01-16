@@ -6,11 +6,10 @@ LABEL version.ubuntu="22.04-lts" \
 ADD --chown=hahlabs:hahlabs files/. files/
 USER root
 RUN apt -y update && apt -y upgrade && apt -y install vim net-tools git
-
-WORKDIR /home/hahlabs
-
 RUN files/setup-ssh-server.sh 22 \
- && rm -rf files 
+ && rm -rf files && apt -y autoremove
+ 
+WORKDIR /home/hahlabs
 
 USER hahlabs
 EXPOSE 22
