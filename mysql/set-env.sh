@@ -9,6 +9,7 @@ export PUSH=push
 export ENV=$ENV
 export DEBUG=-q
 echo \$DOCKER_ID/\$IMAGE_NAME \$CONTAINER_NAME
+export TAG=$ENV-00.07.03
 EOF
 
 cat .env
