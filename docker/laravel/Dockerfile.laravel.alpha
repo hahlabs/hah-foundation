@@ -14,7 +14,7 @@ COPY --chown=hahlabs:hahlabs files/. files/
 RUN  apt -y update && apt -y upgrade \
      && apt install -y apt-utils vim git curl \
      net-tools iputils-ping telnet inetutils-tools php8.2-xdebug \
-     && mkdir -p /var/log/xdebug \
+     && mkdir -p /var/log/xdebug && chmod -R go+rw /var/log/xdebug \
      && files/setup-ssh-server.sh 8222 \
      && apt -y autoremove
 

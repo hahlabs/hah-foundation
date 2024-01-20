@@ -12,6 +12,8 @@ cd ../laravel && nohup ./build-run $1 >> ../scripts/logs/hahlabs-build-run.log 2
 cd ../angular && nohup ./build-run $1 >> ../scripts/logs/hahlabs-build-run.log 2>> ../scripts/logs/hahlabs-build-run.err < /dev/null &
 
 jobs
-wait %1 && wait %2 && wait %3
-if [ ! -z $1 ]; then ./build-all.sh; fi
-tail -f ../scripts/logs/hahlabs-build-run.log
+
+if [ ! -z $1 ]; then 
+    wait %1 && wait %2 && wait %3
+    cd ../scripts && ./build-all.sh
+fi
