@@ -1,4 +1,4 @@
-HAHLABS docker builds starts Tue Aug 13 20:04:59 UTC 2024
+HAHLABS docker builds starts Tue Aug 13 21:14:18 UTC 2024
 export ORG_ID="hahlabs"
 export IMAGE_NAME="ubuntu"
 export CONTAINER_NAME="ubuntu"
@@ -19,36 +19,63 @@ hahlabs/ubuntu-00.08.00 ubuntu
 Tagging container:  ubuntu hahlabs/ubuntu 00.08.00
 Tagged  hahlabs/ubuntu:alpha-00.08.00 [OK]
 Untagged: hahlabs/ubuntu:wip
-hahlabs/ubuntu   alpha-00.08.00   5ad5cce30cd8   1 second ago   435MB
+hahlabs/ubuntu   alpha-00.08.00   4a959d744b46   1 second ago   380MB
 Login Succeeded
 Pushing image:  hahlabs/ubuntu:alpha-00.08.00
 The push refers to repository [docker.io/hahlabs/ubuntu]
 5f70bf18a086: Preparing
-86bb5d1a8641: Preparing
-f018f0b2914b: Preparing
-220ea32df807: Preparing
-c5564c060848: Preparing
-5f6d3305b1f6: Preparing
-c5beb8b6858d: Preparing
-17a8823e3cdc: Preparing
-a57e7949dd7d: Preparing
-8e87ff28f1b5: Preparing
-5f6d3305b1f6: Waiting
-17a8823e3cdc: Waiting
-c5beb8b6858d: Waiting
-a57e7949dd7d: Waiting
-8e87ff28f1b5: Waiting
+f51bc51c87b4: Preparing
+87a8dfd9df14: Preparing
+e3e8069a4a33: Preparing
+46e6fd712916: Preparing
+f92bba425556: Preparing
+3afe8d56f374: Preparing
+39468cf6391c: Preparing
+d3b03605d015: Preparing
+931b7ff0cb6f: Preparing
+3afe8d56f374: Waiting
+39468cf6391c: Waiting
+d3b03605d015: Waiting
+931b7ff0cb6f: Waiting
+f92bba425556: Waiting
+46e6fd712916: Layer already exists
 5f70bf18a086: Layer already exists
-c5564c060848: Layer already exists
-5f6d3305b1f6: Layer already exists
-c5beb8b6858d: Layer already exists
-a57e7949dd7d: Layer already exists
-17a8823e3cdc: Layer already exists
-8e87ff28f1b5: Layer already exists
-220ea32df807: Pushed
-86bb5d1a8641: Pushed
-f018f0b2914b: Pushed
-alpha-00.08.00: digest: sha256:19540a0ab581cebd361b9d8370000a7e61ba03552b40261910d17af3103d180b size: 2416
+3afe8d56f374: Layer already exists
+f92bba425556: Layer already exists
+39468cf6391c: Layer already exists
+d3b03605d015: Layer already exists
+931b7ff0cb6f: Layer already exists
+e3e8069a4a33: Pushed
+f51bc51c87b4: Pushed
+87a8dfd9df14: Pushed
+alpha-00.08.00: digest: sha256:f85a1e38072e27645499c5a44da596fb3574b6b472d833d8c4a89d2c7d701b45 size: 2416
+The push refers to repository [docker.io/hahlabs/ubuntu]
+5f70bf18a086: Preparing
+f51bc51c87b4: Preparing
+87a8dfd9df14: Preparing
+e3e8069a4a33: Preparing
+46e6fd712916: Preparing
+f92bba425556: Preparing
+3afe8d56f374: Preparing
+39468cf6391c: Preparing
+d3b03605d015: Preparing
+931b7ff0cb6f: Preparing
+f92bba425556: Waiting
+3afe8d56f374: Waiting
+39468cf6391c: Waiting
+d3b03605d015: Waiting
+931b7ff0cb6f: Waiting
+46e6fd712916: Layer already exists
+f51bc51c87b4: Layer already exists
+5f70bf18a086: Layer already exists
+e3e8069a4a33: Layer already exists
+87a8dfd9df14: Layer already exists
+f92bba425556: Layer already exists
+3afe8d56f374: Layer already exists
+d3b03605d015: Layer already exists
+39468cf6391c: Layer already exists
+931b7ff0cb6f: Layer already exists
+alpha: digest: sha256:f85a1e38072e27645499c5a44da596fb3574b6b472d833d8c4a89d2c7d701b45 size: 2416
 image:  ubuntu hahlabs/ubuntu:alpha-00.08.00  pushed into repository OK! 0
 ubuntu hahlabs/ubuntu-00.08.00  Built [OK]
 skip test image.
@@ -56,7 +83,7 @@ export ORG_ID="hahlabs"
 export IMAGE_NAME="mysql"
 export CONTAINER_NAME="hahlabs-db"
 export RELEASE=00.08.00
-export IMAGE_TAG=$DOCKER_ID/$IMAGE_NAME
+export IMAGE_TAG=$ORG_ID/$IMAGE_NAME
 # push | skip
 export PUSH=push
 export ENV=alpha
@@ -66,12 +93,12 @@ export DEBUG=
 export TESTRUN=NO
 echo $ORG_ID/$IMAGE_NAME-$RELEASE $CONTAINER_NAME
 hahlabs/mysql-00.08.00 hahlabs-db
-Building docker container:  hahlabs-db /mysql
+Building docker container:  hahlabs-db hahlabs/mysql
 export ORG_ID="hahlabs"
 export IMAGE_NAME="angular"
 export CONTAINER_NAME="hahlabs-view"
 export RELEASE=00.08.00
-export IMAGE_TAG=$DOCKER_ID/$IMAGE_NAME
+export IMAGE_TAG=$ORG_ID/$IMAGE_NAME
 # push | skip
 export PUSH=push
 export ENV=alpha
@@ -81,9 +108,8 @@ export DEBUG=
 export TESTRUN=NO
 echo $ORG_ID/$IMAGE_NAME-$RELEASE $CONTAINER_NAME
 hahlabs/angular-00.08.00 hahlabs-view
-Building docker container:  hahlabs-view /angular
-Building image: /mysql:wip
-Building image: /angular:wip
+Building docker container:  hahlabs-view hahlabs/angular
+Building image: hahlabs/mysql:wip
 export ORG_ID="hahlabs"
 export IMAGE_NAME="laravel"
 export CONTAINER_NAME="hahlabs-app"
@@ -99,67 +125,246 @@ export TESTRUN=NO
 echo $ORG_ID/$IMAGE_NAME-$RELEASE $CONTAINER_NAME
 hahlabs/laravel-00.08.00 hahlabs-app
 Building docker container:  hahlabs-app hahlabs/laravel
+Building image: hahlabs/angular:wip
 Building image: hahlabs/laravel:wip
-hahlabs/angular-00.08.00 hahlabs-view
-Tagging container:  hahlabs-view /angular 00.08.00
-Tagged  hahlabs/angular:alpha-00.08.00 [OK]
 hahlabs/mysql-00.08.00 hahlabs-db
-Tagging container:  hahlabs-db /mysql 00.08.00
+Tagging container:  hahlabs-db hahlabs/mysql 00.08.00
 Tagged  hahlabs/mysql:alpha-00.08.00 [OK]
+Untagged: hahlabs/mysql:wip
+hahlabs/mysql    alpha-00.08.00   8fbfe93aad7b   2 seconds ago    911MB
 Login Succeeded
-Pushing image:  /angular:alpha-00.08.00
-The push refers to repository [docker.io/hahlabs/angular]
-image:  hahlabs-view /angular:alpha-00.08.00  pushed into repository OK! 1
-hahlabs-view /angular-00.08.00  Built [OK]
-skip test image.
-Login Succeeded
-Pushing image:  /mysql:alpha-00.08.00
+Pushing image:  hahlabs/mysql:alpha-00.08.00
 The push refers to repository [docker.io/hahlabs/mysql]
-image:  hahlabs-db /mysql:alpha-00.08.00  pushed into repository OK! 1
-hahlabs-db /mysql-00.08.00  Built [OK]
-skip test image.
+6f7a1555a4a0: Preparing
+4de482e1d342: Preparing
+8213838c7c41: Preparing
+85805a2fb3de: Preparing
+46e6fd712916: Preparing
+f92bba425556: Preparing
+3afe8d56f374: Preparing
+39468cf6391c: Preparing
+d3b03605d015: Preparing
+931b7ff0cb6f: Preparing
+f92bba425556: Waiting
+3afe8d56f374: Waiting
+39468cf6391c: Waiting
+d3b03605d015: Waiting
+931b7ff0cb6f: Waiting
+46e6fd712916: Layer already exists
+85805a2fb3de: Layer already exists
+8213838c7c41: Layer already exists
+f92bba425556: Layer already exists
+3afe8d56f374: Layer already exists
+39468cf6391c: Layer already exists
+d3b03605d015: Layer already exists
+931b7ff0cb6f: Layer already exists
+4de482e1d342: Pushed
+6f7a1555a4a0: Pushed
 hahlabs/laravel-00.08.00 hahlabs-app
 Tagging container:  hahlabs-app hahlabs/laravel 00.08.00
 Tagged  hahlabs/laravel:alpha-00.08.00 [OK]
 Untagged: hahlabs/laravel:wip
-hahlabs/laravel   alpha-00.08.00   ca70beb9ac20   1 second ago         1.21GB
+hahlabs/laravel   alpha-00.08.00   e4f93be6a8f2   2 seconds ago        592MB
 Login Succeeded
 Pushing image:  hahlabs/laravel:alpha-00.08.00
 The push refers to repository [docker.io/hahlabs/laravel]
-fc0d708fa650: Preparing
+alpha-00.08.00: digest: sha256:060b94ba1e06768c1263deeebf136a6e4f984517520446deaefc1c27d41c5a4a size: 2417
+The push refers to repository [docker.io/hahlabs/mysql]
+da2ae1a77cbe: Preparing
 5f70bf18a086: Preparing
-f357ee42e2c6: Preparing
-14f1367e8bc5: Preparing
+fc5bc8ecd83b: Preparing
+f990e36ca44c: Preparing
 5f70bf18a086: Preparing
-24d83c17e542: Preparing
-c3e051c1792e: Preparing
+74aedd2d7c36: Preparing
+f990e36ca44c: Preparing
 5f70bf18a086: Preparing
-c5564c060848: Preparing
-5f6d3305b1f6: Preparing
-c5beb8b6858d: Preparing
-17a8823e3cdc: Preparing
-a57e7949dd7d: Preparing
-8e87ff28f1b5: Preparing
-c3e051c1792e: Waiting
-c5564c060848: Waiting
-5f6d3305b1f6: Waiting
-c5beb8b6858d: Waiting
-17a8823e3cdc: Waiting
-a57e7949dd7d: Waiting
-8e87ff28f1b5: Waiting
-14f1367e8bc5: Layer already exists
+46e6fd712916: Preparing
+f92bba425556: Preparing
+3afe8d56f374: Preparing
+39468cf6391c: Preparing
+d3b03605d015: Preparing
+931b7ff0cb6f: Preparing
+46e6fd712916: Waiting
+f92bba425556: Waiting
+3afe8d56f374: Waiting
+39468cf6391c: Waiting
+d3b03605d015: Waiting
+931b7ff0cb6f: Waiting
+6f7a1555a4a0: Preparing
+4de482e1d342: Preparing
+8213838c7c41: Preparing
+85805a2fb3de: Preparing
+46e6fd712916: Preparing
+f92bba425556: Preparing
+3afe8d56f374: Preparing
+39468cf6391c: Preparing
+d3b03605d015: Preparing
+931b7ff0cb6f: Preparing
+6f7a1555a4a0: Waiting
+4de482e1d342: Waiting
+8213838c7c41: Waiting
+85805a2fb3de: Waiting
+46e6fd712916: Waiting
+f92bba425556: Waiting
+3afe8d56f374: Waiting
+39468cf6391c: Waiting
+d3b03605d015: Waiting
+931b7ff0cb6f: Waiting
+74aedd2d7c36: Layer already exists
+f990e36ca44c: Layer already exists
 5f70bf18a086: Layer already exists
-24d83c17e542: Layer already exists
-c5564c060848: Layer already exists
-c3e051c1792e: Layer already exists
-5f6d3305b1f6: Layer already exists
-17a8823e3cdc: Layer already exists
-c5beb8b6858d: Layer already exists
-a57e7949dd7d: Layer already exists
-8e87ff28f1b5: Layer already exists
-fc0d708fa650: Pushed
-f357ee42e2c6: Pushed
-alpha-00.08.00: digest: sha256:944232fc255f380292cb79d6189cf37f3d870836cda37a4e67afff445a4956e1 size: 3254
+46e6fd712916: Layer already exists
+f92bba425556: Layer already exists
+3afe8d56f374: Layer already exists
+39468cf6391c: Layer already exists
+d3b03605d015: Layer already exists
+931b7ff0cb6f: Layer already exists
+6f7a1555a4a0: Layer already exists
+8213838c7c41: Layer already exists
+4de482e1d342: Layer already exists
+f92bba425556: Layer already exists
+46e6fd712916: Layer already exists
+85805a2fb3de: Layer already exists
+3afe8d56f374: Layer already exists
+39468cf6391c: Layer already exists
+d3b03605d015: Layer already exists
+931b7ff0cb6f: Layer already exists
+alpha: digest: sha256:060b94ba1e06768c1263deeebf136a6e4f984517520446deaefc1c27d41c5a4a size: 2417
+image:  hahlabs-db hahlabs/mysql:alpha-00.08.00  pushed into repository OK! 0
+hahlabs-db hahlabs/mysql-00.08.00  Built [OK]
+skip test image.
+fc5bc8ecd83b: Pushed
+da2ae1a77cbe: Pushed
+alpha-00.08.00: digest: sha256:fa16a6e198d7c8aae603b1bad2a6a636d18e8b90ac2f8a74425e68c9125b0441 size: 3248
+The push refers to repository [docker.io/hahlabs/laravel]
+da2ae1a77cbe: Preparing
+5f70bf18a086: Preparing
+fc5bc8ecd83b: Preparing
+f990e36ca44c: Preparing
+5f70bf18a086: Preparing
+74aedd2d7c36: Preparing
+f990e36ca44c: Preparing
+5f70bf18a086: Preparing
+46e6fd712916: Preparing
+f92bba425556: Preparing
+3afe8d56f374: Preparing
+39468cf6391c: Preparing
+d3b03605d015: Preparing
+931b7ff0cb6f: Preparing
+46e6fd712916: Waiting
+f92bba425556: Waiting
+3afe8d56f374: Waiting
+39468cf6391c: Waiting
+d3b03605d015: Waiting
+931b7ff0cb6f: Waiting
+5f70bf18a086: Layer already exists
+74aedd2d7c36: Layer already exists
+f990e36ca44c: Layer already exists
+da2ae1a77cbe: Layer already exists
+fc5bc8ecd83b: Layer already exists
+46e6fd712916: Layer already exists
+f92bba425556: Layer already exists
+3afe8d56f374: Layer already exists
+d3b03605d015: Layer already exists
+39468cf6391c: Layer already exists
+931b7ff0cb6f: Layer already exists
+alpha: digest: sha256:fa16a6e198d7c8aae603b1bad2a6a636d18e8b90ac2f8a74425e68c9125b0441 size: 3248
 image:  hahlabs-app hahlabs/laravel:alpha-00.08.00  pushed into repository OK! 0
 hahlabs-app hahlabs/laravel-00.08.00  Built [OK]
+skip test image.
+hahlabs/angular-00.08.00 hahlabs-view
+Tagging container:  hahlabs-view hahlabs/angular 00.08.00
+Tagged  hahlabs/angular:alpha-00.08.00 [OK]
+Untagged: hahlabs/angular:wip
+hahlabs/angular   alpha-00.08.00   75eb6c9d5214   20 seconds ago   1.8GB
+Login Succeeded
+Pushing image:  hahlabs/angular:alpha-00.08.00
+The push refers to repository [docker.io/hahlabs/angular]
+64eeb0dcce43: Preparing
+1e8d95c5f662: Preparing
+7810aef888bc: Preparing
+c5fdf2974a7a: Preparing
+5f70bf18a086: Preparing
+5f3ed886b133: Preparing
+45968b8b7d1a: Preparing
+5f70bf18a086: Preparing
+2951906db5ce: Preparing
+47e99ac4dcd5: Preparing
+46e6fd712916: Preparing
+f92bba425556: Preparing
+3afe8d56f374: Preparing
+39468cf6391c: Preparing
+d3b03605d015: Preparing
+931b7ff0cb6f: Preparing
+47e99ac4dcd5: Waiting
+46e6fd712916: Waiting
+f92bba425556: Waiting
+3afe8d56f374: Waiting
+39468cf6391c: Waiting
+d3b03605d015: Waiting
+931b7ff0cb6f: Waiting
+45968b8b7d1a: Waiting
+2951906db5ce: Waiting
+5f3ed886b133: Waiting
+5f70bf18a086: Layer already exists
+64eeb0dcce43: Pushed
+45968b8b7d1a: Pushed
+2951906db5ce: Layer already exists
+47e99ac4dcd5: Layer already exists
+46e6fd712916: Layer already exists
+f92bba425556: Layer already exists
+3afe8d56f374: Layer already exists
+39468cf6391c: Layer already exists
+d3b03605d015: Layer already exists
+931b7ff0cb6f: Layer already exists
+c5fdf2974a7a: Pushed
+7810aef888bc: Pushed
+1e8d95c5f662: Pushed
+5f3ed886b133: Pushed
+alpha-00.08.00: digest: sha256:187c00f95b3cbc349d7521d328863bf104f381958e8ce933c5a74242b8c07681 size: 3676
+The push refers to repository [docker.io/hahlabs/angular]
+64eeb0dcce43: Preparing
+1e8d95c5f662: Preparing
+7810aef888bc: Preparing
+c5fdf2974a7a: Preparing
+5f70bf18a086: Preparing
+5f3ed886b133: Preparing
+45968b8b7d1a: Preparing
+5f70bf18a086: Preparing
+2951906db5ce: Preparing
+47e99ac4dcd5: Preparing
+46e6fd712916: Preparing
+f92bba425556: Preparing
+3afe8d56f374: Preparing
+39468cf6391c: Preparing
+d3b03605d015: Preparing
+931b7ff0cb6f: Preparing
+5f3ed886b133: Waiting
+45968b8b7d1a: Waiting
+2951906db5ce: Waiting
+47e99ac4dcd5: Waiting
+46e6fd712916: Waiting
+f92bba425556: Waiting
+3afe8d56f374: Waiting
+39468cf6391c: Waiting
+d3b03605d015: Waiting
+931b7ff0cb6f: Waiting
+5f70bf18a086: Layer already exists
+7810aef888bc: Layer already exists
+c5fdf2974a7a: Layer already exists
+1e8d95c5f662: Layer already exists
+64eeb0dcce43: Layer already exists
+5f3ed886b133: Layer already exists
+45968b8b7d1a: Layer already exists
+47e99ac4dcd5: Layer already exists
+46e6fd712916: Layer already exists
+2951906db5ce: Layer already exists
+f92bba425556: Layer already exists
+3afe8d56f374: Layer already exists
+39468cf6391c: Layer already exists
+931b7ff0cb6f: Layer already exists
+d3b03605d015: Layer already exists
+alpha: digest: sha256:187c00f95b3cbc349d7521d328863bf104f381958e8ce933c5a74242b8c07681 size: 3676
+image:  hahlabs-view hahlabs/angular:alpha-00.08.00  pushed into repository OK! 0
+hahlabs-view hahlabs/angular-00.08.00  Built [OK]
 skip test image.

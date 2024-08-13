@@ -5,7 +5,7 @@ export ORG_ID="hahlabs"
 export IMAGE_NAME="mysql"
 export CONTAINER_NAME="hahlabs-db"
 export RELEASE=00.08.00
-export IMAGE_TAG=\$DOCKER_ID/\$IMAGE_NAME
+export IMAGE_TAG=\$ORG_ID/\$IMAGE_NAME
 # push | skip
 export PUSH=push
 export ENV=$ENV
