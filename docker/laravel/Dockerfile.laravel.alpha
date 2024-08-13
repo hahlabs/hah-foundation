@@ -4,20 +4,25 @@ LABEL version.php="8.2.14" \
       version.ubuntu="22.04-lts" \
       version.grpc="1.60.0" \
       version.composer="2.6.6" \
-      version.hahlabs-laravel="alpha-00.07.01" \
+      version.hahlabs-laravel="alpha-00.07.02" \
       version.description="Rebuild for 22.04 & php8.2- Laravel 10.x"
 
 USER root
 WORKDIR /home/hahlabs
 COPY --chown=hahlabs:hahlabs files/. files/
 
-RUN  apt -y update && apt -y upgrade && apt install -y apt-utils vim net-tools git iputils-ping
+RUN  apt -y update && apt -y upgrade \
+     && apt install -y apt-utils vim git curl \
+     net-tools iputils-ping telnet inetutils-tools php8.2-xdebug \
+     && mkdir -p /var/log/xdebug && chmod -R go+rw /var/log/xdebug \
+     && files/setup-ssh-server.sh 8222 \
+     && apt -y autoremove
 
 WORKDIR /home/hahlabs
-RUN  files/setup-ssh-server.sh 8222 \
-     && files/setup-nginx-virtual-host.sh \
-     && cp files/startup.alpha.sh startup.sh \
-     && rm -rf files 
+RUN  files/setup-nginx-virtual-host.sh \
+     && cp files/lib/20-xdebug.ini /etc/php/8.2/cli/conf.d \
+     && cp files/lib/20-xdebug.ini /etc/php/8.2/fpm/conf.d \
+     && cp files/startup.alpha.sh startup.sh 
 
 USER hahlabs
 
@@ -27,7 +32,7 @@ USER hahlabs
 
 # 9000 : php-fpm port -used internally - no need to expose
 # 8210 : php artisan serve --host=0.0.0.0 --port=8210 || php -S 0.0.0.0:8210 
-# 9003 : XDebugger, internal should not be exposed, VSCode will report port in use error if exposed
+# 8290 : XDebugger, internal should not be exposed, VSCode will listen to this port
 EXPOSE  8210 8222 
 ENTRYPOINT sudo ./startup.sh
 

@@ -21,7 +21,7 @@ if [ $PUSH == "push" ]; then
  echo "Pushing image: "  $IMAGE_TAG:$ENV
  docker push $DEBUG $DOCKER_ID/$IMAGE_NAME:$ENV
  docker push $DEBUG $DOCKER_ID/$IMAGE_NAME:$1
- echo "image:  $CONTAINER_NAME $IMAGE_TAG:$ENV  pushed into repository OK!"
+ echo "image:  $CONTAINER_NAME $IMAGE_TAG:$ENV  pushed into repository OK! $?"
  else
  echo "skip push."
 fi

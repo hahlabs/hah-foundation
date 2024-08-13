@@ -4,7 +4,7 @@ LABEL version.php="8.2.14" \
       version.ubuntu="22.04-lts" \
       version.grpc="1.60.0" \
       version.composer="2.6.6" \
-      version.hahlabs-laravel="shams-00.07.01" \
+      version.hahlabs-laravel="shams-00.07.02" \
       version.description="Rebuild for 22.04 & php8.2 - Laravel 10.x"
 
 
@@ -14,9 +14,8 @@ USER root
 RUN  apt -y update && apt -y upgrade \
     && files/install-tools.sh \
     && files/install-composer.sh \
-    && files/build-grpc.sh 
-RUN cp files/startup.sh /home/hahlabs \
-    && rm -rf files 
+    && files/build-grpc.sh \
+    && cp files/startup.sh /home/hahlabs  
 
 USER hahlabs
 # 80    : NGINX virtual host default: http://localhost:80 <-- removed

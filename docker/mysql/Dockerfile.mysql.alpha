@@ -6,7 +6,7 @@ USER root
 RUN  apt -y update && apt -y upgrade && apt install -y net-tools vim\  
      && files/setup-ssh-server.sh 8022 \
      && cp files/startup.alpha.sh startup.sh \
-     && rm -rf files 
+     && rm -rf files && apt -y autoremove
      
      
 USER hahlabs

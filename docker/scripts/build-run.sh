@@ -5,7 +5,6 @@
 # docker system prune -af
 ./set-env.sh $1
 . .env
-export TAG=$ENV-00.07.01
 
 # docker-build source .env and set up parameters
 echo "Building docker container: " $CONTAINER_NAME $IMAGE_TAG 
