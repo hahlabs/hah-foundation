@@ -4,7 +4,7 @@ Docker &amp; Kubernetes factories
 Docker Login : hahlabs
 
 # Releases:
-## Alpha-00.05.02: Latest , dev Jan 4th 2024
+## Alpha-00.008.00: Latest , dev Tuesday Aug 13th 2024
 # Images:
  - hahlabs/ubuntu: basic ubuntu image, foundation of all images, latest 22.04 + ssh + hahlabs user
  - hahlabs/mysql: basic foundation of mysql server installed, root user local access only, hahlabs user allow remote access, no example schema, mysql user allow login port 3306
@@ -20,9 +20,10 @@ Highlights:
 
 # Build and deploy to TURNADO
 - $git pull
-- if scripts/docker-hahlabs-access-token.txt doesn't exist $cp ~/.ssh/docker-hahlabs-access-token.txt scripts/
-- if scripts/logs folder doesn't exist $mkdir -p scripts/logs
-- scripts/build-all.sh
+- $cp OneDrive/VMs/CloudAccess/docker/docker-hahlabsdevops-access-token.txt secrets
+- $mkdir -p scripts/logs
+- To build all 4 images: $scripts/build-all.sh [alpha|shams] (Runs 4 image building processes in the background)
+- To build an image <image>/build-run.sh [alpha|shams]
 - follow progress tail -f scripts/logs/hahlabs-build-run.log
 - errors in scripts/logs/hahlabs-build-run.err
 
@@ -41,11 +42,10 @@ Highlights:
 
 # Run Docker image
 - docker run -dit       --name $CONTAINER_NAME $IMAGE_TAG
-
 - docker exec -it `docker ps | sed -n /$CONTAINER_NAME/p  | sed -e 's/\(^[[:xdigit:]]\{12\}\).*$/\1/g'` /bin/bash
 - docker exec -it $CONTAINER_NAME /bin/bash
 
  # Bash Append:
- 1. The >> operator : echo -e "bla bla \n New line here" > file1.txt
+ 1. The >> operator : echo -e "bla bla \n New line here" >> file1.txt
  2. tee -a file1.txt file2.txt ... : multiple files
  3. use /dev/null to eliminate input or output use /dev/null : cat file1.txt > /dev/null < /dev/null

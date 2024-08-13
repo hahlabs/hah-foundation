@@ -10,18 +10,16 @@
 # 5. use DEBUG if set (-q)
 
 . .env
-echo "Tagging container: " $CONTAINER_NAME $IMAGE_TAG $TAG
-docker tag $DOCKER_ID/$IMAGE_NAME:wip $DOCKER_ID/$IMAGE_NAME:$1
-docker tag $DOCKER_ID/$IMAGE_NAME:wip $DOCKER_ID/$IMAGE_NAME:$ENV
-echo "tagged " $DOCKER_ID/$IMAGE_NAME:$1 " and " $DOCKER_ID/$IMAGE_NAME:$ENV "[OK]"
-docker rmi -f $DOCKER_ID/$IMAGE_NAME:wip
-docker images | grep $DOCKER_ID/$IMAGE_NAME
+echo "Tagging container: " $CONTAINER_NAME $IMAGE_TAG $RELEASE
+docker tag $ORG_ID/$IMAGE_NAME:wip $ORG_ID/$IMAGE_NAME:$ENV-$RELEASE
+echo "Tagged " $ORG_ID/$IMAGE_NAME:$ENV-$RELEASE "[OK]"
+docker rmi -f $ORG_ID/$IMAGE_NAME:wip
+docker images | grep $ORG_ID/$IMAGE_NAME
 if [ $PUSH == "push" ]; then
- cat ../scripts/docker-hahlabs-access-token.txt | docker login --username hahlabs --password-stdin
- echo "Pushing image: "  $IMAGE_TAG:$ENV
- docker push $DEBUG $DOCKER_ID/$IMAGE_NAME:$ENV
- docker push $DEBUG $DOCKER_ID/$IMAGE_NAME:$1
- echo "image:  $CONTAINER_NAME $IMAGE_TAG:$ENV  pushed into repository OK! $?"
+ cat ../secrets/docker-hahlabsdevops-access-token.txt | docker login --username hahlabsdevops --password-stdin
+ echo "Pushing image: "  $IMAGE_TAG:$ENV-$RELEASE
+ docker push $DEBUG $ORG_ID/$IMAGE_NAME:$ENV-$RELEASE
+ echo "image:  $CONTAINER_NAME $IMAGE_TAG:$ENV-$RELEASE  pushed into repository OK! $?"
  else
- echo "skip push."
+ echo "PUSH skipped."
 fi

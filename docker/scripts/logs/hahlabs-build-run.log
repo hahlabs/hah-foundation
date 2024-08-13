@@ -1,102 +1,165 @@
-HAHLABS docker builds starts Thu Jan 11 22:37:29 PST 2024
-export DOCKER_ID="hahlabs"
+HAHLABS docker builds starts Tue Aug 13 20:04:59 UTC 2024
+export ORG_ID="hahlabs"
 export IMAGE_NAME="ubuntu"
 export CONTAINER_NAME="ubuntu"
-export IMAGE_TAG=$DOCKER_ID/$IMAGE_NAME
+export RELEASE=00.08.00
+export IMAGE_TAG=$ORG_ID/$IMAGE_NAME
+# push | skip
 export PUSH=push
 export ENV=alpha
-export DEBUG=-q
-echo $DOCKER_ID/$IMAGE_NAME $CONTAINER_NAME
-hahlabs/ubuntu ubuntu
+#export DEBUG=-q
+export DEBUG=
+# valid value "YES"
+export TESTRUN=NO
+echo $ORG_ID/$IMAGE_NAME-$RELEASE $CONTAINER_NAME
+hahlabs/ubuntu-00.08.00 ubuntu
 Building docker container:  ubuntu hahlabs/ubuntu
-hahlabs/ubuntu ubuntu
 Building image: hahlabs/ubuntu:wip
-sha256:a748975244dba47fb9fc7a5e0a7809c412030bcd95043561888b8da22ddc27b1
-hahlabs/ubuntu ubuntu
-Tagging container:  ubuntu hahlabs/ubuntu alpha-00.07.01
-tagged  hahlabs/ubuntu:alpha-00.07.01  and  hahlabs/ubuntu:alpha [OK]
+hahlabs/ubuntu-00.08.00 ubuntu
+Tagging container:  ubuntu hahlabs/ubuntu 00.08.00
+Tagged  hahlabs/ubuntu:alpha-00.08.00 [OK]
 Untagged: hahlabs/ubuntu:wip
-hahlabs/ubuntu    alpha            a748975244db   1 second ago         381MB
-hahlabs/ubuntu    alpha-00.07.01   a748975244db   1 second ago         381MB
-hahlabs/ubuntu    shams            cb342dbcce5a   3 minutes ago        154MB
-hahlabs/ubuntu    shams-00.07.01   cb342dbcce5a   3 minutes ago        154MB
+hahlabs/ubuntu   alpha-00.08.00   5ad5cce30cd8   1 second ago   435MB
 Login Succeeded
-Pushing image:  hahlabs/ubuntu:alpha
-docker.io/hahlabs/ubuntu:alpha
-docker.io/hahlabs/ubuntu:alpha-00.07.01
-image:  ubuntu hahlabs/ubuntu:alpha  pushed into repository OK!
-ubuntu hahlabs/ubuntu  Built [OK]
+Pushing image:  hahlabs/ubuntu:alpha-00.08.00
+The push refers to repository [docker.io/hahlabs/ubuntu]
+5f70bf18a086: Preparing
+86bb5d1a8641: Preparing
+f018f0b2914b: Preparing
+220ea32df807: Preparing
+c5564c060848: Preparing
+5f6d3305b1f6: Preparing
+c5beb8b6858d: Preparing
+17a8823e3cdc: Preparing
+a57e7949dd7d: Preparing
+8e87ff28f1b5: Preparing
+5f6d3305b1f6: Waiting
+17a8823e3cdc: Waiting
+c5beb8b6858d: Waiting
+a57e7949dd7d: Waiting
+8e87ff28f1b5: Waiting
+5f70bf18a086: Layer already exists
+c5564c060848: Layer already exists
+5f6d3305b1f6: Layer already exists
+c5beb8b6858d: Layer already exists
+a57e7949dd7d: Layer already exists
+17a8823e3cdc: Layer already exists
+8e87ff28f1b5: Layer already exists
+220ea32df807: Pushed
+86bb5d1a8641: Pushed
+f018f0b2914b: Pushed
+alpha-00.08.00: digest: sha256:19540a0ab581cebd361b9d8370000a7e61ba03552b40261910d17af3103d180b size: 2416
+image:  ubuntu hahlabs/ubuntu:alpha-00.08.00  pushed into repository OK! 0
+ubuntu hahlabs/ubuntu-00.08.00  Built [OK]
 skip test image.
-export DOCKER_ID="hahlabs"
-export IMAGE_NAME="laravel"
-export CONTAINER_NAME="hahlabs-app"
-export IMAGE_TAG=$DOCKER_ID/$IMAGE_NAME
-export PUSH=push
-export ENV=alpha
-export DEBUG=-q
-echo $DOCKER_ID/$IMAGE_NAME $CONTAINER_NAME
-export DOCKER_ID="hahlabs"
+export ORG_ID="hahlabs"
 export IMAGE_NAME="mysql"
 export CONTAINER_NAME="hahlabs-db"
+export RELEASE=00.08.00
 export IMAGE_TAG=$DOCKER_ID/$IMAGE_NAME
+# push | skip
 export PUSH=push
 export ENV=alpha
-export DEBUG=-q
-echo $DOCKER_ID/$IMAGE_NAME $CONTAINER_NAME
-export DOCKER_ID="hahlabs"
+#export DEBUG=-q
+export DEBUG=
+# valid value "YES"
+export TESTRUN=NO
+echo $ORG_ID/$IMAGE_NAME-$RELEASE $CONTAINER_NAME
+hahlabs/mysql-00.08.00 hahlabs-db
+Building docker container:  hahlabs-db /mysql
+export ORG_ID="hahlabs"
 export IMAGE_NAME="angular"
 export CONTAINER_NAME="hahlabs-view"
+export RELEASE=00.08.00
 export IMAGE_TAG=$DOCKER_ID/$IMAGE_NAME
+# push | skip
 export PUSH=push
 export ENV=alpha
-export DEBUG=-q
-echo $DOCKER_ID/$IMAGE_NAME $CONTAINER_NAME
-hahlabs/laravel hahlabs-app
-hahlabs/angular hahlabs-view
-Building docker container:  hahlabs-view hahlabs/angular
+#export DEBUG=-q
+export DEBUG=
+# valid value "YES"
+export TESTRUN=NO
+echo $ORG_ID/$IMAGE_NAME-$RELEASE $CONTAINER_NAME
+hahlabs/angular-00.08.00 hahlabs-view
+Building docker container:  hahlabs-view /angular
+Building image: /mysql:wip
+Building image: /angular:wip
+export ORG_ID="hahlabs"
+export IMAGE_NAME="laravel"
+export CONTAINER_NAME="hahlabs-app"
+export RELEASE=00.08.00
+export IMAGE_TAG=$ORG_ID/$IMAGE_NAME
+# push | skip
+export PUSH=push
+export ENV=alpha
+#export DEBUG=-q
+export DEBUG=
+# valid value "YES"
+export TESTRUN=NO
+echo $ORG_ID/$IMAGE_NAME-$RELEASE $CONTAINER_NAME
+hahlabs/laravel-00.08.00 hahlabs-app
 Building docker container:  hahlabs-app hahlabs/laravel
-hahlabs/mysql hahlabs-db
-Building docker container:  hahlabs-db hahlabs/mysql
-hahlabs/laravel hahlabs-app
-hahlabs/mysql hahlabs-db
 Building image: hahlabs/laravel:wip
-Building image: hahlabs/mysql:wip
-hahlabs/angular hahlabs-view
-Building image: hahlabs/angular:wip
-sha256:715eb53e8f6efe5af233f7510116f134ab095085358fa9f581abe8422bdb7161
-hahlabs/mysql hahlabs-db
-Tagging container:  hahlabs-db hahlabs/mysql alpha-00.07.01
-tagged  hahlabs/mysql:alpha-00.07.01  and  hahlabs/mysql:alpha [OK]
-Untagged: hahlabs/mysql:wip
-hahlabs/mysql     alpha            715eb53e8f6e   1 second ago         905MB
-hahlabs/mysql     alpha-00.07.01   715eb53e8f6e   1 second ago         905MB
-hahlabs/mysql     shams            c4daafff5b5c   3 minutes ago        781MB
-hahlabs/mysql     shams-00.07.01   c4daafff5b5c   3 minutes ago        781MB
+hahlabs/angular-00.08.00 hahlabs-view
+Tagging container:  hahlabs-view /angular 00.08.00
+Tagged  hahlabs/angular:alpha-00.08.00 [OK]
+hahlabs/mysql-00.08.00 hahlabs-db
+Tagging container:  hahlabs-db /mysql 00.08.00
+Tagged  hahlabs/mysql:alpha-00.08.00 [OK]
 Login Succeeded
-Pushing image:  hahlabs/mysql:alpha
-docker.io/hahlabs/mysql:alpha
-sha256:ce9330506c89459edafc57fed5f477da60c1e0cf8eee253dcb3d1878eabbd2ab
-hahlabs/laravel hahlabs-app
-Tagging container:  hahlabs-app hahlabs/laravel alpha-00.07.01
-tagged  hahlabs/laravel:alpha-00.07.01  and  hahlabs/laravel:alpha [OK]
-Untagged: hahlabs/laravel:wip
-hahlabs/laravel   alpha            ce9330506c89   1 second ago         1.33GB
-hahlabs/laravel   alpha-00.07.01   ce9330506c89   1 second ago         1.33GB
-hahlabs/laravel   shams            6cad0ba9f1cd   2 minutes ago        862MB
-hahlabs/laravel   shams-00.07.01   6cad0ba9f1cd   2 minutes ago        862MB
-Login Succeeded
-Pushing image:  hahlabs/laravel:alpha
-docker.io/hahlabs/mysql:alpha-00.07.01
-image:  hahlabs-db hahlabs/mysql:alpha  pushed into repository OK!
-hahlabs-db hahlabs/mysql  Built [OK]
+Pushing image:  /angular:alpha-00.08.00
+The push refers to repository [docker.io/hahlabs/angular]
+image:  hahlabs-view /angular:alpha-00.08.00  pushed into repository OK! 1
+hahlabs-view /angular-00.08.00  Built [OK]
 skip test image.
-hahlabs/angular hahlabs-view
-Tagging container:  hahlabs-view hahlabs/angular alpha-00.07.01
-tagged  hahlabs/angular:alpha-00.07.01  and  hahlabs/angular:alpha [OK]
-hahlabs/angular   shams            a11f4c2fa5a8   4 minutes ago        211MB
-hahlabs/angular   shams-00.07.01   a11f4c2fa5a8   4 minutes ago        211MB
 Login Succeeded
-Pushing image:  hahlabs/angular:alpha
-image:  hahlabs-view hahlabs/angular:alpha  pushed into repository OK!
-hahlabs-view hahlabs/angular  Built [OK]
+Pushing image:  /mysql:alpha-00.08.00
+The push refers to repository [docker.io/hahlabs/mysql]
+image:  hahlabs-db /mysql:alpha-00.08.00  pushed into repository OK! 1
+hahlabs-db /mysql-00.08.00  Built [OK]
+skip test image.
+hahlabs/laravel-00.08.00 hahlabs-app
+Tagging container:  hahlabs-app hahlabs/laravel 00.08.00
+Tagged  hahlabs/laravel:alpha-00.08.00 [OK]
+Untagged: hahlabs/laravel:wip
+hahlabs/laravel   alpha-00.08.00   ca70beb9ac20   1 second ago         1.21GB
+Login Succeeded
+Pushing image:  hahlabs/laravel:alpha-00.08.00
+The push refers to repository [docker.io/hahlabs/laravel]
+fc0d708fa650: Preparing
+5f70bf18a086: Preparing
+f357ee42e2c6: Preparing
+14f1367e8bc5: Preparing
+5f70bf18a086: Preparing
+24d83c17e542: Preparing
+c3e051c1792e: Preparing
+5f70bf18a086: Preparing
+c5564c060848: Preparing
+5f6d3305b1f6: Preparing
+c5beb8b6858d: Preparing
+17a8823e3cdc: Preparing
+a57e7949dd7d: Preparing
+8e87ff28f1b5: Preparing
+c3e051c1792e: Waiting
+c5564c060848: Waiting
+5f6d3305b1f6: Waiting
+c5beb8b6858d: Waiting
+17a8823e3cdc: Waiting
+a57e7949dd7d: Waiting
+8e87ff28f1b5: Waiting
+14f1367e8bc5: Layer already exists
+5f70bf18a086: Layer already exists
+24d83c17e542: Layer already exists
+c5564c060848: Layer already exists
+c3e051c1792e: Layer already exists
+5f6d3305b1f6: Layer already exists
+17a8823e3cdc: Layer already exists
+c5beb8b6858d: Layer already exists
+a57e7949dd7d: Layer already exists
+8e87ff28f1b5: Layer already exists
+fc0d708fa650: Pushed
+f357ee42e2c6: Pushed
+alpha-00.08.00: digest: sha256:944232fc255f380292cb79d6189cf37f3d870836cda37a4e67afff445a4956e1 size: 3254
+image:  hahlabs-app hahlabs/laravel:alpha-00.08.00  pushed into repository OK! 0
+hahlabs-app hahlabs/laravel-00.08.00  Built [OK]
 skip test image.

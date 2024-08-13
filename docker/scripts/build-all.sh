@@ -1,7 +1,8 @@
 #!/bin/bash
-# docker rm -f $(docker ps -aq)
-# docker rmi -f $(docker images -q)
-# docker system prune -af
+# Usage : build-all.sh <alpha|shams>
+docker rm -f $(docker ps -aq)
+docker rmi -f $(docker images -q)
+docker system prune -af
 echo "Building hahlabs docker containers...$1"
 echo "HAHLABS docker builds errors $(date)" > ../scripts/logs/hahlabs-build-run.err
 echo "HAHLABS docker builds starts $(date)" > ../scripts/logs/hahlabs-build-run.log
@@ -14,6 +15,6 @@ cd ../angular && nohup ./build-run $1 >> ../scripts/logs/hahlabs-build-run.log 2
 jobs
 
 if [ ! -z $1 ]; then 
-    wait %1 && wait %2 && wait %3
+    wait %1 && wait %2 && wait %3exit
     cd ../scripts && ./build-all.sh
 fi

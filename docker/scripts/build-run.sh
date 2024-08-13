@@ -1,5 +1,5 @@
 #!/bin/bash
-#usage ./buid-run <image-tag>  ex/ alpha-0.1.12 or lts-3
+#usage ./buid-run <image-tag>  ex/ alpha|shams
 # docker rm -f $(docker ps -aq)
 # docker rmi -f $(docker images -q)
 # docker system prune -af
@@ -11,9 +11,11 @@ echo "Building docker container: " $CONTAINER_NAME $IMAGE_TAG
 
 ln -fs Dockerfile.$IMAGE_NAME.$ENV Dockerfile
 
-../scripts/docker-build.sh
+echo "Building image:" $IMAGE_TAG:wip
 
-../scripts/docker-tag.sh $TAG 
+docker buildx build $DEBUG -t $IMAGE_TAG:wip .
 
-echo  $CONTAINER_NAME $IMAGE_TAG " Built [OK]"
-if [ -z ${DEBUG+x} ]; then ./test-image.sh; else echo "skip test image."; fi
+../scripts/docker-tag.sh 
+
+echo  $CONTAINER_NAME $IMAGE_TAG-$RELEASE " Built [OK]"
+if [ $TESTRUN == "YES" ]; then ./test-image.sh; else echo "skip test image."; fi
