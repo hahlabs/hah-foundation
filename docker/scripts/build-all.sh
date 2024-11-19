@@ -1,8 +1,6 @@
 #!/bin/bash
 # Usage : build-all.sh <alpha|shams>
-docker rm -f $(docker ps -aq)
-docker rmi -f $(docker images -q)
-docker system prune -af
+
 echo "Building hahlabs docker containers...$1"
 echo "HAHLABS docker builds errors $(date)" > ../scripts/logs/hahlabs-build-run.err
 echo "HAHLABS docker builds starts $(date)" > ../scripts/logs/hahlabs-build-run.log

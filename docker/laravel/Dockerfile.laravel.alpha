@@ -4,7 +4,7 @@ LABEL version.php="8.2.14" \
       version.ubuntu="22.04-lts" \
       version.grpc="1.60.0" \
       version.composer="2.6.6" \
-      version.hahlabs-laravel="alpha-00.07.02" \
+      version.hahlabs-laravel="alpha-00.08.04" \
       version.description="Rebuild for 22.04 & php8.2- Laravel 10.x"
 
 USER root

@@ -4,10 +4,8 @@ cat <<EOF > .env
 export ORG_ID="hahlabs"
 export IMAGE_NAME="mysql"
 export CONTAINER_NAME="hahlabs-db"
-export RELEASE=00.08.00
+export RELEASE=00.08.04
 export IMAGE_TAG=\$ORG_ID/\$IMAGE_NAME
-# push | skip
-export PUSH=push
 export ENV=$ENV
 #export DEBUG=-q
 export DEBUG=

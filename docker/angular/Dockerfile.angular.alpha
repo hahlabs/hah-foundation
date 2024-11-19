@@ -5,7 +5,7 @@ LABEL version.angular="17.0.8" \
       version.nvm="0.39.7" \
       version.node.js="20.10.0-lts" \
       version.npm="10.2.3" \
-      version.hahlabs-angular="alpha-00.07.01" \
+      version.hahlabs-angular="alpha-00.08.04" \
       version.description="Ubuntu 22.04 - Angular 17"
 
 COPY --chown=hahlabs:hahlabs files/. files/
