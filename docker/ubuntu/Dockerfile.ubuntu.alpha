@@ -1,6 +1,6 @@
-FROM hahlabs/ubuntu:shams
+FROM hahlabs/ubuntu:core
 LABEL version.ubuntu="22.04-lts" \
-      version.hahlabs-ubuntu="alpha-00.08.04"
+      version.hahlabs-ubuntu="alpha-00.09.00"
 # Common Layers
 # Update, Upgrade, install packages
 ADD --chown=hahlabs:hahlabs files/. files/

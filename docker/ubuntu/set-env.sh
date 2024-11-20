@@ -4,7 +4,7 @@ cat <<EOF > .env
 export ORG_ID="hahlabs"
 export IMAGE_NAME="ubuntu"
 export CONTAINER_NAME="ubuntu"
-export RELEASE=00.08.04
+export RELEASE=00.09.00
 export IMAGE_TAG=\$ORG_ID/\$IMAGE_NAME
 
 export ENV=$ENV

@@ -1,10 +1,10 @@
-FROM hahlabs/ubuntu:shams
+FROM hahlabs/ubuntu:core
 LABEL version.php="8.2.25" \
       version.zend="4.2.25" \
       version.ubuntu="22.04-lts" \
       version.grpc="1.68.0" \
       version.composer="2.8.3" \
-      version.hahlabs-laravel="shams-00.08.04" \
+      version.hahlabs-laravel="core-00.09.00" \
       version.description="Build for 22.04 & php8.2 - Laravel 10.x"
 
 

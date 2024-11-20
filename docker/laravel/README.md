@@ -1,5 +1,5 @@
 #Building Image
-build shams first before alpha takes approximately 30m on TURNADO
+build shams first before alpha takes approximately 45m on TURNADO
 
 This docker container should have
 1. nginx runs on port 8201 <default nginx site>
@@ -11,7 +11,7 @@ This docker container should have
 Match set-env.sh/RELEASE with Dockerfile.laravel.alpha/version.hahlabs-laravel
 
 Process to build the image
-1. ./build-run shams
+1. ./build-run core
 2. ./build-run [alpha]
-3. ./test-image [alpha | beta | shams]
-4. ./publish-image [shams | beta | alpha ]
+3. ./test-image [alpha | core]
+4. ./publish-image [core|  alpha ]

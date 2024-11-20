@@ -1,1 +1,1 @@
-Dockerfile.angular.alpha
+Dockerfile.angular.core

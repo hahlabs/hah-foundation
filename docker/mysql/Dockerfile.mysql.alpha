@@ -1,5 +1,5 @@
-FROM hahlabs/mysql:shams
-LABEL version.hahlabs-mysql="alpha-00.07.01"
+FROM hahlabs/mysql:core
+LABEL version.hahlabs-mysql="alpha-00.09.00"
 
 COPY --chown=hahlabs:hahlabs files/. files/
 USER root

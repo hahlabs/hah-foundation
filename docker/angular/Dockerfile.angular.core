@@ -1,8 +1,8 @@
 # Production Host only for the Angular Website no development tools
-FROM hahlabs/ubuntu:shams
+FROM hahlabs/ubuntu:core
 LABEL version.ubuntu="22.04-lts" \
       version.node.js="20.10.0-lts" \
-      version.hahlabs-angular="shams-00.08.04" \
+      version.hahlabs-angular="core-00.09.00" \
       version.description="Ubuntu 22.04 - NGINX"
 
 COPY --chown=hahlabs:hahlabs files/. files/

@@ -1,8 +1,6 @@
 #!/bin/bash
-#usage ./buid-run <image-tag>  ex/ alpha|shams
-# docker rm -f $(docker ps -aq)
-# docker rmi -f $(docker images -q)
-# docker system prune -af
+#usage ./buid-image [alpha|core]  default alpha
+
 ./set-env.sh $1
 . .env
 
