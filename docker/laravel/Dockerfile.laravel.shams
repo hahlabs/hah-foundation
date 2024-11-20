@@ -1,10 +1,10 @@
 FROM hahlabs/ubuntu:shams
-LABEL version.php="8.2.14" \
-      version.zend="4.2.14" \
+LABEL version.php="8.2.25" \
+      version.zend="4.2.25" \
       version.ubuntu="22.04-lts" \
-      version.grpc="1.60.0" \
-      version.composer="2.6.6" \
-      version.hahlabs-laravel="shams-00.08.03" \
+      version.grpc="1.68.0" \
+      version.composer="2.8.3" \
+      version.hahlabs-laravel="shams-00.08.04" \
       version.description="Build for 22.04 & php8.2 - Laravel 10.x"
 
 
@@ -15,7 +15,7 @@ RUN  apt -y update && apt -y upgrade \
     && files/install-tools.sh \
     && files/install-composer.sh \
     && files/build-grpc.sh \
-    && cp files/startup.sh /home/hahlabs  
+    && cp files/startup.shams.sh /home/hahlabs/startup.sh  
 
 USER hahlabs
 # 80    : NGINX virtual host default: http://localhost:80 <-- removed

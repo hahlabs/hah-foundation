@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 LABEL version.ubuntu="22.04-lts" \
-      version.hahlabs-ubuntu="prod-00.07.01"
+      version.hahlabs-ubuntu="shams-00.08.04"
 # Common Layers
 # Update, Upgrade, install packages
 RUN apt -y update && apt -y upgrade

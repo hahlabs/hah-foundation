@@ -1,12 +1,12 @@
 FROM hahlabs/ubuntu:shams
-LABEL version.hahlabs-mysql="shams-00.07.01"
+LABEL version.hahlabs-mysql="shams-00.08.04"
 
 COPY --chown=hahlabs:hahlabs files/. files/
 USER root
 RUN  apt -y update && apt -y upgrade \
      && files/setup-mysql.sh \
      && mysql  < files/hahlabs-user.sql  \
-     && cp files/startup.sh /home/hahlabs \
+     && cp files/startup.shams.sh /home/hahlabs \
      && rm -rf files 
      
 USER hahlabs
