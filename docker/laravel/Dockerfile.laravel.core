@@ -15,7 +15,7 @@ RUN  apt -y update && apt -y upgrade \
     && files/install-tools.sh \
     && files/install-composer.sh \
     && files/build-grpc.sh \
-    && cp files/startup.shams.sh /home/hahlabs/startup.sh  
+    && cp files/startup.shams.sh /home/hahlabs/startup.sh 
 
 USER hahlabs
 # 80    : NGINX virtual host default: http://localhost:80 <-- removed
@@ -26,5 +26,5 @@ USER hahlabs
 # 8210 : php artisan serve --host=0.0.0.0 --port=8210 || php -S 0.0.0.0:8210 
 # 9003 : XDebugger, internal should not be exposed, VSCode will report port in use error if exposed
 EXPOSE  8201
-# ENTRYPOINT sudo ./startup.sh  
+ENTRYPOINT sudo ./startup.sh  
 
