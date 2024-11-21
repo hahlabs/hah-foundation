@@ -1,4 +1,4 @@
 docker-hahlabs-access-token.txt
-/logs/.
-/secrets
+**/logs/
+/secrets/
 *.so
