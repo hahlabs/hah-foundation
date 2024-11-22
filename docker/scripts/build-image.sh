@@ -7,11 +7,9 @@
 # docker-build source .env and set up parameters
 echo "Building docker container: " $CONTAINER_NAME $IMAGE_TAG 
 
-ln -fs Dockerfile.$IMAGE_NAME.$ENV Dockerfile
-
 echo "Building image:" $IMAGE_TAG:wip
 
-docker buildx build $DEBUG -t $IMAGE_TAG:wip .
+docker buildx build $DEBUG -t $IMAGE_TAG:wip -f Dockerfile.$IMAGE_NAME.$ENV .
 
 ../scripts/docker-tag.sh 
 

@@ -1,1 +1,0 @@
-Dockerfile.angular.alpha

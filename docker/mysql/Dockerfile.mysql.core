@@ -3,7 +3,7 @@ LABEL version.hahlabs-mysql="core-00.09.00"
 
 COPY --chown=hahlabs:hahlabs files/. files/
 USER root
-RUN  apt -y update && apt -y upgrade \
+RUN  apt -y update && apt -y upgrade && apt -y install zip cron \
      && files/setup-mysql.sh \
      && mysql  < files/hahlabs-user.sql  \
      && cp files/startup.core.sh /home/hahlabs/startup.sh \
