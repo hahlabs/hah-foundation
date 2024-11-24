@@ -29,17 +29,20 @@ echo "HAHLABS docker builds errors $(date)" > ../scripts/logs/hahlabs-build-run.
 echo "HAHLABS docker builds starts $(date)" > ../scripts/logs/hahlabs-build-run.log
 echo "Build Ubuntu base image...Please wait"
 seconds0=$(date +"%s")
+
 cd ../ubuntu && nohup $COMMAND $BUILD >> ../scripts/logs/hahlabs-build-run.log 2>> ../scripts/logs/hahlabs-build-run.err < /dev/null
+
+cd ../scripts
 cd ../mysql && nohup $COMMAND $BUILD  >> ../scripts/logs/hahlabs-build-run.log 2>> ../scripts/logs/hahlabs-build-run.err < /dev/null & 
 cd ../laravel && nohup $COMMAND $BUILD   >> ../scripts/logs/hahlabs-build-run.log 2>> ../scripts/logs/hahlabs-build-run.err < /dev/null & 
 cd ../angular && nohup $COMMAND $BUILD   >> ../scripts/logs/hahlabs-build-run.log 2>> ../scripts/logs/hahlabs-build-run.err < /dev/null &
-cd ../scripts
+
 
 jobs
 
-echo "Job started $(date +'%A %B %d @ %HH:%MM:%SS') Waiting . . ."
+echo "Job started $(date +'%A %B %d @ %H:%M:%S') Waiting . . ."
 while true;do echo -n .;sleep 1;done &
-wait %1 && wait %2 && wait %3
+wait %1  %2  %3
 kill $!; trap 'kill $!' SIGTERM
 seconds1=$(date +"%s")
 echo !$((seconds1 - seconds0))  seconds 
@@ -47,6 +50,5 @@ echo !$((seconds1 - seconds0))  seconds
 if [ ! -z $BUILD ] && [ $BUILD = "core" ] ; then 
  echo "PWD: " `pwd`
  ./build-all alpha $PUBLISH 
-
 fi
 docker images | grep hahlabs
