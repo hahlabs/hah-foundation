@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 LABEL version.ubuntu="22.04-lts" \
-      version.hahlabs-ubuntu="core-00.09.00"
+      version.hahlabs-ubuntu="core-00.09.02"
 # Common Layers
 # Update, Upgrade, install packages
 RUN apt -y update && apt -y upgrade
@@ -10,12 +10,12 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=America/Vancouver apt-get -y install tzdat
 
 WORKDIR /home/hahlabs
 ADD files /home/hahlabs/files
-# Setup ops user use defaults uid 15268 gid 15268
-RUN files/setup-hahlabs-user.sh \
- && files/setup-sudoers.sh  \
- && cp files/startup.sh /home/hahlabs \
- && rm -rf files \
- && chown -R hahlabs:hahlabs /home/hahlabs 
+# Setup ops user use defaults uid 5268 gid 5268
+RUN files/setup-hahlabs-user.sh 
+#  && files/setup-sudoers.sh  \
+#  && cp files/startup.sh /home/hahlabs \
+#  && rm -rf files \
+#  && chown -R hahlabs:hahlabs /home/hahlabs 
 
 USER hahlabs
 # Enables the service on docker run container

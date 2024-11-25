@@ -9,7 +9,7 @@ echo "Building docker container: " $CONTAINER_NAME $IMAGE_TAG
 
 echo "Building image:" $IMAGE_TAG:wip
 
-docker buildx build $DEBUG -t $IMAGE_TAG:wip -f Dockerfile.$IMAGE_NAME.$ENV .
+docker buildx build $DEBUG -t $IMAGE_TAG:wip -f Dockerfile.$IMAGE_NAME.$ENV --platform linux/amd64 .
 
 ../scripts/docker-tag.sh 
 
